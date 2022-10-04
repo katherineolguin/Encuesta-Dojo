@@ -11,14 +11,15 @@
     <title>result's</title>
 </head>
 <body>
-    <div class="resultados  col-4  p-4 mx-auto bg-dark text-warning ">
-        <h1>{{session['nombre']}}</h1>
+    <div class="resultados  col-4 my-4  p-4 mx-auto bg-dark text-warning ">
+        <!-- <h1>{{session['nombre']}}</h1> -->
+        <h1>{{dojo.nombre}}</h1>
 
 
         <div class="mx-auto text-white ">
-            <h5>Ciudad:  {{session['ciudad']}}</h5>
-            <h5>Lenguaje favorito:  {{session['lenguaje']}}</h5>
-            <h5>Comentario:  {{session['comentario']}}</h5>
+            <h5>Ciudad:  {{dojo.ubicacion}}</h5>
+            <h5>Lenguaje favorito:  {{dojo.idioma}}</h5>
+            <h5>Comentario:  {{dojo.comentario}}</h5>
 
 
 

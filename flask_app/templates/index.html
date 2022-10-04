@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+    <title>Encuesta Dojo</title>
+</head>
+
+<body>
+
+    <div class="container   p-4 col-4  bg-dark  text-warning  mx-auto">
+
+        <h1 class="text-center">Dojo Survey</h1>
+        {% with messages = get_flashed_messages(category_filter=['prosess']) %}
+        {% if messages %}
+        <div class="alert alert-danger">
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+
+        <form action="/proceso" method="post" class="col-9  text-white  mx-auto">
+
+            <label for="idnombre">Nombre:</label>
+            <input type="text" name="nombre" class="form-control" id="idnombre">
+
+            <label for="idciudad">Dojo Ciudad:</label>
+            <select type="number" name="ubicacion" class="form-control form-select text-center" id="idciudad">
+                <option selected ></option>
+                <!-- ---Selecciona una Ciudad --- -->
+                <option value="Santiago">Santiago</option>
+                <option value="Viña del mar">Viña del mar</option>
+                <option value="Puerto Mont">Puerto Mont</option>
+                <option value="Concepcion">Concepcion</option>
+            </select>
+
+            <label for="idlenguaje">Lenguaje Favorito:</label>
+            <select type="number" name="idioma" class="form-control form-select text-center" id="idlenguaje">
+                <option selected></option>
+                <!-- ---Selecciona tu lenguaje favorito--- -->
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="c#">c#</option>
+            </select>
+
+            <label for="idcomentario">Comentario:</label>
+            <textarea id="idcomentario" class="form-control" rows="6" name="comentario"></textarea>
+            <h6>Te gustaria más informacion?</h6>
+            <div class="form-check form-switch">
+
+                <input type="checkbox" name="ChekBox1" class="form-check-input" id="idcheckbox">
+                <label for="idcheckbox" class="form-check-label">si, recivir actualizaciones</label>
+            </div>
+            <div class="form-check form-switch">
+                <input type="checkbox" name="ChekBox2" class="form-check-input" id="idcheckbox1">
+                <label for="idcheckbox1"  class="form-check-label">si, recivir noticias</label>
+            </div>
+            <div class="form-check form-switch">
+                <input type="checkbox" name="ChekBox3" class="form-check-input" id="idcheckbox2">
+                <label for="idcheckbox2" class="form-check-label">si, recivir eventos</label>
+            </div>
+            <input type="submit" value="Enviar" class="btn btn-warning">
+        </form>
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

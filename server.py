@@ -1,42 +1,10 @@
-from flask import Flask, render_template, request, session, redirect
+from flask_app import app
 
-app = Flask(__name__)
-app.secret_key= "It's september 26!"
-
-@app.route('/index')
-def index():
-    return render_template('index.html')
+#Importar controladores
+from flask_app.controllers import dojos_controllers
 
 
 
-@app.route('/proceso', methods=['POST'])
-
-def proceso():
-
-    # return(request.form)
-
-    session['nombre']= request.form['nombre']
-    session['ciudad']= request.form['ciudad']
-    session['lenguaje']= request.form['lenguaje']
-    session['comentario']= request.form['comentario']
-
-
-    return redirect('/result')
-
-@app.route('/result')
-def result():
-    return render_template('result.html')
-
-
-
-
-
-
-
-
-
-
-
-
+#Ejecutamos variable app
 if __name__=="__main__":
     app.run(debug=True)
